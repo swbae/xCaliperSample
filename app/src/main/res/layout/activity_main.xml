@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        <TextView
+                android:id="@+id/sessionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Session Event"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp" />
+
+        <LinearLayout
+                android:id="@+id/sessionLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/sessionText"
+                app:layout_constraintStart_toStartOf="@+id/sessionText">
+
+            <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="로그인"/>
+
+            <Button
+                    android:id="@+id/btn_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="로그아웃"/>
+
+            <Button
+                    android:id="@+id/btn_timeout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="타임아웃"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/mediaText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Media Event"
+                app:layout_constraintTop_toBottomOf="@+id/sessionLayout"
+                app:layout_constraintStart_toStartOf="@+id/sessionLayout"/>
+
+        <LinearLayout
+                android:id="@+id/mediaLayout1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/mediaText"
+                app:layout_constraintStart_toStartOf="@+id/mediaText">
+
+            <Button
+                    android:id="@+id/btn_md_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="시작"/>
+            <Button
+                    android:id="@+id/btn_md_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="종료"/>
+            <Button
+                    android:id="@+id/btn_md_paused"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="멈춤"/>
+            <Button
+                    android:id="@+id/btn_md_resumed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="멈춤 후 시작"/>
+            <Button
+                    android:id="@+id/btn_md_restart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="재시작"/>
+            <Button
+                    android:id="@+id/btn_md_forward"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="앞으로감기"/>
+            <Button
+                    android:id="@+id/btn_md_jumped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="점프"/>
+            <Button
+                    android:id="@+id/btn_md_changedResolution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="resolution 변경"/>
+            <Button
+                    android:id="@+id/btn_md_changedSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사이즈 변경"/>
+
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/mediaLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/mediaLayout1"
+                app:layout_constraintStart_toStartOf="@+id/mediaLayout1">
+
+            <Button
+                    android:id="@+id/btn_md_changedSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="재생속도 변경"/>
+            <Button
+                    android:id="@+id/btn_md_changedVolume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="볼륨 변경"/>
+            <Button
+                    android:id="@+id/btn_md_enabledClosedCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자막 활성화"/>
+            <Button
+                    android:id="@+id/btn_md_disabledClosedCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자막 비활성화"/>
+            <Button
+                    android:id="@+id/btn_md_enterFullscreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체화면 진입"/>
+            <Button
+                    android:id="@+id/btn_md_exitedFullscreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체화면 해제"/>
+            <Button
+                    android:id="@+id/btn_md_muted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="음소거"/>
+            <Button
+                    android:id="@+id/btn_md_unmuted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="음소거 해제"/>
+            <Button
+                    android:id="@+id/btn_md_openedPopout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="팝업 띄우기"/>
+            <Button
+                    android:id="@+id/btn_md_closedPopout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="팝업 닫기"/>
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvAnnotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Annotation Event"
+                app:layout_constraintTop_toBottomOf="@+id/mediaLayout2"
+                app:layout_constraintStart_toStartOf="@+id/mediaLayout2" />
+
+        <LinearLayout
+                android:id="@+id/annotationLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvAnnotation"
+                app:layout_constraintStart_toStartOf="@+id/tvAnnotation">
+
+            <Button
+                    android:id="@+id/btn_bookmarked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="북마크"/>
+
+            <Button
+                    android:id="@+id/btn_highlighted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="하이라이트"/>
+            <Button
+                    android:id="@+id/btn_shared"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="공유"/>
+            <Button
+                    android:id="@+id/btn_tagged"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="태그"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvAssignable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assignable Event"
+                app:layout_constraintTop_toBottomOf="@+id/annotationLayout"
+                app:layout_constraintStart_toStartOf="@+id/annotationLayout" />
+
+        <LinearLayout
+                android:id="@+id/assignableLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvAssignable"
+                app:layout_constraintStart_toStartOf="@+id/tvAssignable">
+
+            <Button
+                    android:id="@+id/btn_as_activated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과제 활성화"/>
+
+            <Button
+                    android:id="@+id/btn_as_deactivated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과제 비활성화"/>
+            <Button
+                    android:id="@+id/btn_as_started"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과제 시작"/>
+            <Button
+                    android:id="@+id/btn_as_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과제 완료"/>
+
+            <Button
+                    android:id="@+id/btn_as_submitted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과제 제출"/>
+
+            <Button
+                    android:id="@+id/btn_as_reviewed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과제 리뷰"/>
+        </LinearLayout>
+
+
+        <TextView
+                android:id="@+id/tvAssessment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assessment Event"
+                app:layout_constraintTop_toBottomOf="@+id/assignableLayout"
+                app:layout_constraintStart_toStartOf="@+id/assignableLayout" />
+
+        <LinearLayout
+                android:id="@+id/assessmentLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvAssessment"
+                app:layout_constraintStart_toStartOf="@+id/tvAssessment">
+
+            <Button
+                    android:id="@+id/btn_ass_started"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평가 시작"/>
+
+            <Button
+                    android:id="@+id/btn_ass_paused"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평가 중지"/>
+            <Button
+                    android:id="@+id/btn_ass_resumed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평가 중지 후 시작"/>
+            <Button
+                    android:id="@+id/btn_ass_restarted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평가 재시작"/>
+
+            <Button
+                    android:id="@+id/btn_ass_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평가 리셋"/>
+
+            <Button
+                    android:id="@+id/btn_ass_submitted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평가 제출"/>
+        </LinearLayout>
+
+
+        <TextView
+                android:id="@+id/tvAssessmentItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AssessmentItem Event"
+                app:layout_constraintTop_toBottomOf="@+id/assessmentLayout"
+                app:layout_constraintStart_toStartOf="@+id/assessmentLayout" />
+
+        <LinearLayout
+                android:id="@+id/assessmentItemLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvAssessmentItem"
+                app:layout_constraintStart_toStartOf="@+id/tvAssessmentItem">
+
+            <Button
+                    android:id="@+id/btn_assitem_started"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="문항 풀기 시작"/>
+
+            <Button
+                    android:id="@+id/btn_assitem_skipped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="문항 풀지 않고 스킵"/>
+            <Button
+                    android:id="@+id/btn_assitem_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="문항 풀기 완료"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvGrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade Event"
+                app:layout_constraintTop_toBottomOf="@+id/assessmentItemLayout"
+                app:layout_constraintStart_toStartOf="@+id/assessmentItemLayout" />
+
+        <LinearLayout
+                android:id="@+id/gradeLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvGrade"
+                app:layout_constraintStart_toStartOf="@+id/tvGrade">
+
+            <Button
+                    android:id="@+id/btn_gd_grade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="채점"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Message Event"
+                app:layout_constraintTop_toBottomOf="@+id/gradeLayout"
+                app:layout_constraintStart_toStartOf="@+id/gradeLayout" />
+
+        <LinearLayout
+                android:id="@+id/messageLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvMessage"
+                app:layout_constraintStart_toStartOf="@+id/tvMessage">
+
+            <Button
+                    android:id="@+id/btn_msg_markedAsRead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="읽기 표시"/>
+
+            <Button
+                    android:id="@+id/btn_msg_markedAsUnRead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="읽기 표시 비활성화"/>
+
+            <Button
+                    android:id="@+id/btn_msg_posted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="메시지 글 게시"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvToolUse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ToolUse Event"
+                app:layout_constraintTop_toBottomOf="@+id/messageLayout"
+                app:layout_constraintStart_toStartOf="@+id/messageLayout" />
+
+        <LinearLayout
+                android:id="@+id/toolUseLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvToolUse"
+                app:layout_constraintStart_toStartOf="@+id/tvToolUse">
+
+            <Button
+                    android:id="@+id/btn_tooluse_launched"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="앱 실행"/>
+
+            <Button
+                    android:id="@+id/btn_tooluse_used"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="앱 종료"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvForum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forum Event"
+                app:layout_constraintTop_toBottomOf="@+id/toolUseLayout"
+                app:layout_constraintStart_toStartOf="@+id/toolUseLayout" />
+
+        <LinearLayout
+                android:id="@+id/forumLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvForum"
+                app:layout_constraintStart_toStartOf="@+id/tvForum">
+
+            <Button
+                    android:id="@+id/btn_forum_subscribed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forum 참가"/>
+
+            <Button
+                    android:id="@+id/btn_forum_unsubscribed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forum 나가기"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Event"
+                app:layout_constraintTop_toBottomOf="@+id/forumLayout"
+                app:layout_constraintStart_toStartOf="@+id/forumLayout" />
+
+        <LinearLayout
+                android:id="@+id/viewLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvView"
+                app:layout_constraintStart_toStartOf="@+id/tvView">
+
+            <Button
+                    android:id="@+id/btn_view_viewed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="게시글을 읽음"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/tvNavigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Navigation Event"
+                app:layout_constraintTop_toBottomOf="@+id/viewLayout"
+                app:layout_constraintStart_toStartOf="@+id/viewLayout" />
+
+        <LinearLayout
+                android:id="@+id/navigationLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tvNavigation"
+                app:layout_constraintStart_toStartOf="@+id/tvNavigation">
+
+            <Button
+                    android:id="@+id/btn_navigation_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="메뉴 이동"/>
+            <Button
+                    android:id="@+id/btn_navigation_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="콘텐츠 이동"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
