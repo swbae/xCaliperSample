@@ -3,10 +3,12 @@ package com.iscreamreport.xcaliper.sample
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.iscreamreport.xcaliper.model.Answer
 import com.iscreamreport.xcaliper.utils.Base64Util
 import com.iscreamreport.xcaliper.utils.getCurrentTime
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,8 +27,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("EVENT_TYPE","SessionEvent")
                 intent.putExtra("ACTION_TYPE","LoggedIn")
 
-                intent.putExtra("ACTOR_ID","631945")
-                intent.putExtra("ACTOR_LOGIN_ID","pt0002b1")
+                intent.putExtra("ACTOR_ID","12341234")
+                intent.putExtra("ACTOR_LOGIN_ID","xCaliperSampleId")
                 intent.putExtra("ACTOR_KIND_CD","학생")
                 intent.putExtra("ACTOR_GRADE",3)
                 intent.putExtra("ACTOR_STATUS" , "ON_SERVICE")
@@ -93,6 +95,12 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
                 intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
@@ -124,8 +132,44 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
+
+                intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID",packageName)
+                intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION",this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+
+        }
+
+        //Media - Completed (GameObject 한정)
+        btn_md_completed.setOnClickListener{
+
+            Intent().also{
+                    intent->
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE","MediaEvent")
+                intent.putExtra("ACTION_TYPE","Completed")
+
+                intent.putExtra("OBJ_ID" , "12312314")
+                intent.putExtra("OBJ_TYPE","GameObject")
+                intent.putExtra("OBJ_NAME" , "1에서 5까지의 수  개념영상")
+                intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
+                intent.putExtra("OBJ_KEYWORDS" , arrayOf("수학","수의 체계", "9까지의 수", "1에서 5까지의 수"))
+                intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("규칙성","문제해결력"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -153,6 +197,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -182,6 +233,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -211,6 +269,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -240,6 +305,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -270,6 +342,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -299,6 +378,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -328,6 +414,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -357,6 +450,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -386,6 +486,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -416,6 +523,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -445,6 +559,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -475,6 +596,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -504,6 +632,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -533,6 +668,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , true)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -562,6 +704,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -591,6 +740,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -620,6 +776,13 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_URL" , "mp4:data/origin_img/2011/09/02/2010902p5512485.mp4")
                 intent.putExtra("OBJ_KEYWORDS" , arrayOf("케냐","두얼굴의 왕국","동물"))
                 intent.putExtra("OBJ_LEARN_OBJS" , arrayOf("동물의 일상","치타의 습성"))
+                intent.putExtra("OBJ_MEDIA_TYPE" , "video/mp4")
+                intent.putExtra("OBJ_DATE_PUBLISHED" , "2018-08-01T06:00:00.000Z")
+                intent.putExtra("OBJ_DATE_MODIFIED" , "2018-08-03T06:00:00.000Z")
+                intent.putExtra("OBJ_VOLUME_LEVEL" , "12")
+                intent.putExtra("OBJ_VOLUME_MIN" , "2")
+                intent.putExtra("OBJ_VOLUME_MAX" , "20")
+                intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
 
@@ -756,7 +919,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_SUBJ_PLAN_COMPLETE_COUNT",0)
                 intent.putExtra("REF_SP_PLAN_COUNT",2)
                 intent.putExtra("REF_SP_PLAN_COMPLETE_COUNT",0)
-                intent.putExtra("REF_SERVICE_ID","55432")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -786,8 +948,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
                 intent.putExtra("OBJ_MEDIA_TYPE","video")
 
-                intent.putExtra("REF_SERVICE_ID","55432")
-
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
@@ -815,7 +975,32 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
                 intent.putExtra("OBJ_MEDIA_TYPE","video")
 
-                intent.putExtra("REF_SERVICE_ID","55432")
+                intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID",packageName)
+                intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION",this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+        //assignable - paused
+        btn_as_paused.setOnClickListener{
+            Intent().also{
+                    intent->
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE","AssignableEvent")
+                intent.putExtra("ACTION_TYPE","Paused")
+
+                intent.putExtra("OBJ_ID","12332")
+                intent.putExtra("OBJ_KIND","CourseSection")
+                intent.putExtra("OBJ_NAME","4장 구구단 알기")
+                intent.putExtra("OBJ_MAX_ATTEMPTS",3)
+                intent.putExtra("OBJ_MAX_SUMBITS",2)
+                intent.putExtra("OBJ_MAX_SCORE",100.0)
+                intent.putExtra("OBJ_VERSION","1.2.0")
+                intent.putExtra("OBJ_KEYWORDS", arrayOf("#키워드1","#키워드2","#키워드3"))
+                intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
+                intent.putExtra("OBJ_MEDIA_TYPE","video")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -843,8 +1028,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_KEYWORDS", arrayOf("#키워드1","#키워드2","#키워드3"))
                 intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
                 intent.putExtra("OBJ_MEDIA_TYPE","video")
-
-                intent.putExtra("REF_SERVICE_ID","55432")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -882,7 +1065,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_SUBJ_PLAN_COMPLETE_COUNT",0)
                 intent.putExtra("REF_SP_PLAN_COUNT",2)
                 intent.putExtra("REF_SP_PLAN_COMPLETE_COUNT",0)
-                intent.putExtra("REF_SERVICE_ID","55432")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -910,8 +1092,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_KEYWORDS", arrayOf("#키워드1","#키워드2","#키워드3"))
                 intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
                 intent.putExtra("OBJ_MEDIA_TYPE","video")
-
-                intent.putExtra("REF_SERVICE_ID","55432")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1232,11 +1412,22 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_MARK_CNT", 1)
                 intent.putExtra("REF_EXAM_TYPE", 1)
 
-                val listdata = ArrayList<Answer>()
-                for (i in 1..3) {
-                    listdata.add(Answer("287770", "10", "0", "③"))
+                val jArray = JSONArray()
+                try {
+                    for (i in 1..3) {
+                        val sObject = JSONObject()
+                        sObject.put("questionId", "287770")
+                        sObject.put("type", "10")
+                        sObject.put("result", "0")
+                        sObject.put("input", "③")
+                        jArray.put(sObject)
+                    }
+
+                } catch (e: JSONException) {
+                    e.printStackTrace()
                 }
-                intent.putExtra("REF_ANSWERS", listdata)
+
+                intent.putExtra("REF_ANSWERS", jArray.toString())
 
                 intent.putExtra("GEN_MAXSCORE",100.0)
                 intent.putExtra("GEN_SCOREGIVEN",43.0)
@@ -1286,7 +1477,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("ACTION_TYPE", "MarkedAsUnRead")
 
                 intent.putExtra("OBJ_ID", "12332")
-                intent.putExtra("OBJ_TYPE","Message")
                 intent.putExtra("OBJ_NAME", "메시지 제목")
                 intent.putExtra("OBJ_BODY", "메시지 본문")
                 intent.putExtra("OBJ_DESC", "설명")
@@ -1313,7 +1503,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("ACTION_TYPE", "Posted")
 
                 intent.putExtra("OBJ_ID", "12332")
-                intent.putExtra("OBJ_TYPE","Message")
                 intent.putExtra("OBJ_NAME", "메시지 제목")
                 intent.putExtra("OBJ_BODY", "메시지 본문")
                 intent.putExtra("OBJ_DESC", "설명")
@@ -1423,6 +1612,50 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_TYPE", "Page")
                 intent.putExtra("OBJ_NAME", "홈런 생생정보 5월호")
                 intent.putExtra("OBJ_MEDIA_TYPE", "text")
+
+                intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID",packageName)
+                intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //View Viewed - 평가 힌트 보기
+        btn_view_viewed_hint.setOnClickListener {
+            Intent().also { intent ->
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "ViewEvent")
+                intent.putExtra("ACTION_TYPE", "Viewed")
+
+                intent.putExtra("OBJ_ID", "123123")
+                intent.putExtra("OBJ_TYPE", "AssessmentItem")
+                intent.putExtra("OBJ_NAME", "3학년1학기 모의고사")
+                intent.putExtra("OBJ_MEDIA_TYPE", "text/html")
+                intent.putExtra("OBJ_VIEW_TYPE", "HintView")
+
+                intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID",packageName)
+                intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //View Viewed - 풀이 완료 후 해설 보기
+        btn_view_viewed_explan.setOnClickListener {
+            Intent().also { intent ->
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "ViewEvent")
+                intent.putExtra("ACTION_TYPE", "Viewed")
+
+                intent.putExtra("OBJ_ID", "123123")
+                intent.putExtra("OBJ_TYPE", "AssessmentItem")
+                intent.putExtra("OBJ_NAME", "3학년1학기 모의고사")
+                intent.putExtra("OBJ_MEDIA_TYPE", "text/html")
+                intent.putExtra("OBJ_VIEW_TYPE", "ExplanView")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)

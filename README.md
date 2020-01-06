@@ -1,5 +1,5 @@
 # xCaliperSample
-### 프로젝트 설정
+## 프로젝트 설정
 **프로젝트의 build.gradle 파일의 repositories에 다음의 maven 저장소를 추가합니다.**
 ```kotlin
 maven {
@@ -59,7 +59,7 @@ Sync를 하게 되면 메이븐 저장소에서 SDK 라이브러리를 다운로
 value 는 발급 받은 서비스 코드를 사용하시면 됩니다.
 
 
-### SDK 사용법
+## SDK 사용법
 프로젝트의 Application Class 의 onCreate() 에 XCaliper.start 를 호출합니다. 적용된 코드는 아래와 같습니다. 
 ```kotlin
 override fun onCreate() {
@@ -78,7 +78,7 @@ action 이름은 Broadcast 전송시 사용되므로 원하는 곳에 저장하�
 주의 : com.xcaliper.sample 은 예제이므로 발급받은 action 이름을 넣어줘야 합니다.<br>
 
 
-### 이벤트 전송 방법
+## 이벤트 전송 방법
 데이터 전송은 Broadcast 를 통해 전송됩니다. <br>
 데이터 전송시 수신처 지정을 위해 발급받은 action 이름을 넣습니다.
 ```kotlin
@@ -148,3 +148,13 @@ intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME);
 intent.putExtra("EXT_LOCATION",this.getClass().getName().trim());
 sendBroadcast(intent);
 ```
+
+
+## SDK 변경 이력
+### v 1.1.0
+1. GradeEvent - REF_ANSWERS 타입 변경 (List 에서 Json string 으로 변경)
+2. 웹뷰(WebView) 에서 이벤트 전송 방법 변경 
+3. AssignableEvent 에 Paused 액션 추가
+4. MediaEvent 에 Completed 액션 추가 
+5. MediaEvent 에 GameObject 추가
+6. ViewEvent 에 OBJ_VIEW_TYPE 프로퍼티 추가 

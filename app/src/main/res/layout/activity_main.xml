@@ -75,6 +75,11 @@
                     android:layout_height="wrap_content"
                     android:text="종료"/>
             <Button
+                    android:id="@+id/btn_md_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="완료"/>
+            <Button
                     android:id="@+id/btn_md_paused"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -243,6 +248,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="과제 시작"/>
+            <Button
+                    android:id="@+id/btn_as_paused"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="과제 중지"/>
             <Button
                     android:id="@+id/btn_as_completed"
                     android:layout_width="wrap_content"
@@ -491,6 +501,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="게시글을 읽음"/>
+
+            <Button
+                    android:id="@+id/btn_view_viewed_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평가 힌트 보기"/>
+
+            <Button
+                    android:id="@+id/btn_view_viewed_explan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="풀이 완료 후 해설 보기"/>
 
         </LinearLayout>
 
