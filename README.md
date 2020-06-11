@@ -157,4 +157,8 @@ sendBroadcast(intent);
 3. AssignableEvent 에 Paused 액션 추가
 4. MediaEvent 에 Completed 액션 추가 
 5. MediaEvent 에 GameObject 추가
-6. ViewEvent 에 OBJ_VIEW_TYPE 프로퍼티 추가 
+6. ViewEvent 에 OBJ_VIEW_TYPE 프로퍼티 추가
+
+### v 1.2.0
+1. AssignableEvent Object Type에 DigitalResource 추가
+2. MediaEvent - JumpedTo 액션에 TG_PREVTIME 속성 추가

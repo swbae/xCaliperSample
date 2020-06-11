@@ -351,6 +351,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_MUTED" , false)
 
                 intent.putExtra("TG_CURTIME",3600)
+                intent.putExtra("TG_PREVTIME",1700)
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -965,6 +966,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("ACTION_TYPE","Started")
 
                 intent.putExtra("OBJ_ID","12332")
+                intent.putExtra("OBJ_TYPE", "DigitalResource")
                 intent.putExtra("OBJ_KIND","CourseSection")
                 intent.putExtra("OBJ_NAME","4장 구구단 알기")
                 intent.putExtra("OBJ_MAX_ATTEMPTS",3)
@@ -992,6 +994,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("ACTION_TYPE","Paused")
 
                 intent.putExtra("OBJ_ID","12332")
+                intent.putExtra("OBJ_TYPE", "DigitalResource")
                 intent.putExtra("OBJ_KIND","CourseSection")
                 intent.putExtra("OBJ_NAME","4장 구구단 알기")
                 intent.putExtra("OBJ_MAX_ATTEMPTS",3)
@@ -1019,6 +1022,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("ACTION_TYPE","Completed")
 
                 intent.putExtra("OBJ_ID","12332")
+                intent.putExtra("OBJ_TYPE", "DigitalResource")
                 intent.putExtra("OBJ_KIND","CourseSection")
                 intent.putExtra("OBJ_NAME","4장 구구단 알기")
                 intent.putExtra("OBJ_MAX_ATTEMPTS",3)
