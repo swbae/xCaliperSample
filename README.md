@@ -162,3 +162,6 @@ sendBroadcast(intent);
 ### v 1.2.0
 1. AssignableEvent Object Type에 DigitalResource 추가
 2. MediaEvent - JumpedTo 액션에 TG_PREVTIME 속성 추가
+
+### v 1.2.2
+1. Android target SDK 26 이상을 사용하는 앱은 백그라운드 실행 제한 정책 반영, Foreground Service 실행
