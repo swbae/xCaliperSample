@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
 
                 intent.putExtra("ACTOR_ID","12341234")
                 intent.putExtra("ACTOR_LOGIN_ID","xCaliperSampleId")
-                intent.putExtra("ACTOR_KIND_CD","학생")
+                intent.putExtra("ACTOR_KIND_CD","Student")
                 intent.putExtra("ACTOR_GRADE",3)
                 intent.putExtra("ACTOR_STATUS" , "ON_SERVICE")
-                intent.putExtra("ACTOR_MEMBERSHIP" , "정회원")
+                intent.putExtra("ACTOR_MEMBERSHIP" , "Learner")
 
                 intent.putExtra("TCHR_ID" , "12314")
                 intent.putExtra("TCHR_LOGIN_ID" , "tc_test01")
@@ -350,7 +350,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_VOLUME_MAX" , "20")
                 intent.putExtra("OBJ_MUTED" , false)
 
-                intent.putExtra("TG_CURTIME",3600)
+                intent.putExtra("TG_CURTIME",1200)
                 intent.putExtra("TG_PREVTIME",1700)
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
@@ -809,6 +809,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_NAME" , "Annotation 샘플")
 
                 intent.putExtra("GEN_TYPE","BookmarkAnnotation")
+                intent.putExtra("GEN_ANNOTATOR","annotator")
+                intent.putExtra("GEN_ANNOTATED","annotated")
                 intent.putExtra("GEN_BOOKMARK_NOTES","북마크 합니다.")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
@@ -832,6 +834,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_NAME" , "Annotation 샘플")
 
                 intent.putExtra("GEN_TYPE","SharedAnnotation")
+                intent.putExtra("GEN_ANNOTATOR","annotator")
+                intent.putExtra("GEN_ANNOTATED","annotated")
                 intent.putExtra("GEN_WITH_AGENTS",arrayOf("657585","667788"))
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
@@ -856,6 +860,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_NAME" , "Annotation 샘플")
 
                 intent.putExtra("GEN_TYPE","HighlightAnnotation")
+                intent.putExtra("GEN_ANNOTATOR","annotator")
+                intent.putExtra("GEN_ANNOTATED","annotated")
                 intent.putExtra("GEN_SELECT_TEXT","하이라이트 합니다.")
                 intent.putExtra("GEN_SELECTION_START",10)
                 intent.putExtra("GEN_SELECTION_END",55)
@@ -883,6 +889,8 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_NAME" , "Annotation 샘플")
 
                 intent.putExtra("GEN_TYPE","TagAnnotation")
+                intent.putExtra("GEN_ANNOTATOR","annotator")
+                intent.putExtra("GEN_ANNOTATED","annotated")
                 intent.putExtra("GEN_TAGS",arrayOf("수학","구구단","테스트"))
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
@@ -1134,7 +1142,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
                 intent.putExtra("EXT_LOCATION",this.javaClass.name.trim())
-                intent.putExtra("EXT_APPNAME","스쿨링 수학")
 
                 sendBroadcast(intent)
             }
@@ -1405,6 +1412,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("EVENT_TYPE", "GradeEvent")
                 intent.putExtra("ACTION_TYPE", "Graded")
 
+                intent.putExtra("OBJ_ID","12332")
                 intent.putExtra("OBJ_NAME", "3학년 수학 모의고사")
                 intent.putExtra("OBJ_VERSION", "1.2.1")
                 intent.putExtra("OBJ_START_AT_TIME", getCurrentTime())
@@ -1515,6 +1523,35 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_DATE_CREATED", getCurrentTime())
                 intent.putExtra("OBJ_DATE_MODIFIED", getCurrentTime())
                 intent.putExtra("OBJ_DATE_PUBLISHED", getCurrentTime())
+
+                intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID",packageName)
+                intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //message - Posted (음성 발화 Text 수집)
+        btn_speech_recognizer_posted.setOnClickListener {
+            Intent().also { intent ->
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "MessageEvent")
+                intent.putExtra("ACTION_TYPE", "Posted")
+
+                intent.putExtra("OBJ_ID", "d33d1bb2-0386-4174-9fc7-6457899db9c2")
+                intent.putExtra("OBJ_TYPE", "SpeechRecognizer")
+                intent.putExtra("OBJ_NAME", "StopCapture")
+                intent.putExtra("OBJ_BODY", "오늘 날씨 어때")
+
+                intent.putExtra("REF_ID", "d33d1bb2-0386-4174-9fc7-6457899db9c2")
+                intent.putExtra("REF_TYPE", "SpeechRecognizer")
+                intent.putExtra("REF_EXPECT_SPEECH_ID", "f4f4erfrrfr-b4b4-4d53-822e-f15249d42056")
+                intent.putExtra("REF_SEARCHED", true)
+
+                intent.putExtra("TG_ID","6ef75f5e-b4b4-4d53-822e-f15249d42056")
+                intent.putExtra("TG_TYPE", "Thread")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1671,7 +1708,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Navigation NavigatedTo - 메뉴 이동 (DigitalResourceCollection)
-        //OBJ_ID 는 packageName + className + OBJ_NAME + OBJ_CONTENT_ID(Optional)
+        //OBJ_ID 는 packageName + className + OBJ_NAME(Base64 Encoding) + OBJ_CONTENT_ID(Optional)
         btn_navigation_menu.setOnClickListener {
             Intent().also { intent ->
                 intent.setAction(getString(R.string.xcaliper_action))
@@ -1713,6 +1750,28 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //Search Searched - 콘텐츠 검색 시
+        btn_searched.setOnClickListener {
+            Intent().also { intent ->
+
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "SearchEvent")
+                intent.putExtra("ACTION_TYPE", "Searched")
+
+                intent.putExtra("OBJ_ID", "123123")
+                intent.putExtra("OBJ_NAME", "과학")
+
+                intent.putExtra("GEN_SEARCH_RESULTS_ITEM_COUNT", 3)
+
+                intent.putExtra("EDAPP_NAME", getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID", packageName)
+                intent.putExtra("EDAPP_VERSION", BuildConfig.VERSION_NAME)
                 intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
 
                 sendBroadcast(intent)

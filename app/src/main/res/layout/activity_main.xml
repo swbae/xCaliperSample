@@ -417,6 +417,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="메시지 글 게시"/>
+            <Button
+                    android:id="@+id/btn_speech_recognizer_posted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="음성 발화 Text 수집"/>
 
         </LinearLayout>
 
@@ -542,6 +547,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="콘텐츠 이동"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search Event"
+            app:layout_constraintTop_toBottomOf="@+id/navigationLayout"
+            app:layout_constraintStart_toStartOf="@+id/navigationLayout" />
+
+        <LinearLayout
+            android:id="@+id/searchLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tvSearch"
+            app:layout_constraintStart_toStartOf="@+id/tvSearch">
+
+            <Button
+                android:id="@+id/btn_searched"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="검색"/>
 
         </LinearLayout>
 
