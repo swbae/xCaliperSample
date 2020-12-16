@@ -40,7 +40,7 @@ AWS_ACCESS_KEY 와 AWS_SECRET_KEY 는 발급 받은 내용을 사용하시면 �
 
 **모듈의 build.gradle 파일의 dependencies에 다음 내용을 추가합니다.**
 ```kotlin
-implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.0.0', ext: 'aar', classifier: 'release') {
+implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.3.0', ext: 'aar', classifier: 'release') {
    transitive = true
 }
 ```
@@ -165,3 +165,7 @@ sendBroadcast(intent);
 
 ### v 1.2.2
 1. Android target SDK 26 이상을 사용하는 앱은 백그라운드 실행 제한 정책 반영, Foreground Service 실행
+
+### v 1.3.0
+1. SearchEvent 추가
+2. MessageEvent에 음성 발화 타입 추가
