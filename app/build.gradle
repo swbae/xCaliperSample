@@ -42,7 +42,7 @@ dependencies {
 
     implementation group: 'androidx.multidex', name: 'multidex', version: '2.0.1'
 
-    implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.3.0', ext: 'aar', classifier: 'debug') {
+    implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.4.0', ext: 'aar', classifier: 'debug') {
         transitive = true
     }
 

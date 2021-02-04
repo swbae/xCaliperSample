@@ -169,3 +169,8 @@ sendBroadcast(intent);
 ### v 1.3.0
 1. SearchEvent 추가
 2. MessageEvent에 음성 발화 타입 추가
+
+### v 1.4.0
+1. 설문 관련 SurveyEvent, QuestionnaireEvent 추가
+2. ViewEvent 에 OBJ_PAGE_NUM 프로퍼티 추가
+3. NavigationEvent - OBJ_TYPE에 오늘의 학습일 경우 AssignableDigitalResource 추가

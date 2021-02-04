@@ -1653,6 +1653,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_TYPE", "Page")
                 intent.putExtra("OBJ_NAME", "홈런 생생정보 5월호")
                 intent.putExtra("OBJ_MEDIA_TYPE", "text")
+                intent.putExtra("OBJ_PAGE_NUM", 3)
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1768,6 +1769,86 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_NAME", "과학")
 
                 intent.putExtra("GEN_SEARCH_RESULTS_ITEM_COUNT", 3)
+
+                intent.putExtra("EDAPP_NAME", getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID", packageName)
+                intent.putExtra("EDAPP_VERSION", BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //Survey Created - 설문 생성 시
+        btn_survey_created.setOnClickListener {
+            Intent().also { intent ->
+
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "SurveyEvent")
+                intent.putExtra("ACTION_TYPE", "Created")
+
+                intent.putExtra("OBJ_ID", "123123")
+                intent.putExtra("OBJ_NAME", "설문 제목")
+
+                intent.putExtra("EDAPP_NAME", getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID", packageName)
+                intent.putExtra("EDAPP_VERSION", BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //Survey Deleted - 설문 삭제 시
+        btn_survey_deleted.setOnClickListener {
+            Intent().also { intent ->
+
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "SurveyEvent")
+                intent.putExtra("ACTION_TYPE", "Deleted")
+
+                intent.putExtra("OBJ_ID", "123123")
+                intent.putExtra("OBJ_NAME", "설문 제목")
+
+                intent.putExtra("EDAPP_NAME", getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID", packageName)
+                intent.putExtra("EDAPP_VERSION", BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //Questionnaire Started - 설문 시작 시
+        btn_questionnaire_started.setOnClickListener {
+            Intent().also { intent ->
+
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "QuestionnaireEvent")
+                intent.putExtra("ACTION_TYPE", "Started")
+
+                intent.putExtra("OBJ_ID", "123123")
+                intent.putExtra("OBJ_NAME", "설문 제목")
+
+                intent.putExtra("EDAPP_NAME", getText(R.string.app_name))
+                intent.putExtra("EDAPP_ID", packageName)
+                intent.putExtra("EDAPP_VERSION", BuildConfig.VERSION_NAME)
+                intent.putExtra("EXT_LOCATION", this.javaClass.name.trim())
+
+                sendBroadcast(intent)
+            }
+        }
+
+        //Questionnaire Submitted - 설문 제출 시
+        btn_questionnaire_submitted.setOnClickListener {
+            Intent().also { intent ->
+
+                intent.setAction(getString(R.string.xcaliper_action))
+                intent.putExtra("EVENT_TYPE", "QuestionnaireEvent")
+                intent.putExtra("ACTION_TYPE", "Submitted")
+
+                intent.putExtra("OBJ_ID", "123123")
+                intent.putExtra("OBJ_NAME", "설문 제목")
 
                 intent.putExtra("EDAPP_NAME", getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID", packageName)

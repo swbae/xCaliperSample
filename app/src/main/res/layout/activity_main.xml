@@ -574,5 +574,65 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tvSurvey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Survey Event"
+            app:layout_constraintTop_toBottomOf="@+id/searchLayout"
+            app:layout_constraintStart_toStartOf="@+id/searchLayout" />
+
+        <LinearLayout
+            android:id="@+id/surveyLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tvSurvey"
+            app:layout_constraintStart_toStartOf="@+id/tvSurvey">
+
+            <Button
+                android:id="@+id/btn_survey_created"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="설문 생성"/>
+
+            <Button
+                android:id="@+id/btn_survey_deleted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="설문 삭제"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvQuestionnaire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Questionnaire Event"
+            app:layout_constraintTop_toBottomOf="@+id/surveyLayout"
+            app:layout_constraintStart_toStartOf="@+id/surveyLayout" />
+
+        <LinearLayout
+            android:id="@+id/questionnaireLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuestionnaire"
+            app:layout_constraintStart_toStartOf="@+id/tvQuestionnaire">
+
+            <Button
+                android:id="@+id/btn_questionnaire_started"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="설문 시작"/>
+
+            <Button
+                android:id="@+id/btn_questionnaire_submitted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="설문 제출"/>
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
