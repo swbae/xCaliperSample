@@ -984,6 +984,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_KEYWORDS", arrayOf("#키워드1","#키워드2","#키워드3"))
                 intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
                 intent.putExtra("OBJ_MEDIA_TYPE","video")
+                intent.putExtra("OBJ_PROG_DAY","2019-08-11")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1012,6 +1013,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_KEYWORDS", arrayOf("#키워드1","#키워드2","#키워드3"))
                 intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
                 intent.putExtra("OBJ_MEDIA_TYPE","video")
+                intent.putExtra("OBJ_PROG_DAY","2019-08-11")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1040,6 +1042,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_KEYWORDS", arrayOf("#키워드1","#키워드2","#키워드3"))
                 intent.putExtra("OBJ_LEARN_OBJS", arrayOf("이해력1","이해력2","이해력3"))
                 intent.putExtra("OBJ_MEDIA_TYPE","video")
+                intent.putExtra("OBJ_PROG_DAY","2019-08-11")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
