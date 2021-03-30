@@ -174,3 +174,6 @@ sendBroadcast(intent);
 1. 설문 관련 SurveyEvent, QuestionnaireEvent 추가
 2. ViewEvent 에 OBJ_PAGE_NUM 프로퍼티 추가
 3. NavigationEvent - OBJ_TYPE에 오늘의 학습일 경우 AssignableDigitalResource 추가
+
+### v 1.4.1
+1. 앱 실행 시 SDK 초기화 중 이벤트 전송이 안되는 문제 수정
