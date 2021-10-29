@@ -40,7 +40,12 @@ AWS_ACCESS_KEY 와 AWS_SECRET_KEY 는 발급 받은 내용을 사용하시면 �
 
 **모듈의 build.gradle 파일의 dependencies에 다음 내용을 추가합니다.**
 ```kotlin
-implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.3.0', ext: 'aar', classifier: 'release') {
+//앱에서 Koin 미 사용 시
+implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.0', ext: 'aar', classifier: 'koin-release') {
+   transitive = true
+}
+//앱에서 Koin 사용 시
+implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.0', ext: 'aar', classifier: 'koin-module-release') {
    transitive = true
 }
 ```
@@ -177,3 +182,7 @@ sendBroadcast(intent);
 
 ### v 1.4.1
 1. 앱 실행 시 SDK 초기화 중 이벤트 전송이 안되는 문제 수정
+
+### v 1.5.0
+1. 시선 추적 이벤트(EyeTrackingEvent) 추가
+2. Koin 라이브러리 사용 여부에 따른 모듈 명 변경
