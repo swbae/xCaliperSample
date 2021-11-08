@@ -19,3 +19,10 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.iscreamreport.xcaliper.**
+-keepclassmembers class com.iscreamreport.xcaliper.** { *; }
+-keep enum com.iscreamreport.xcaliper.**
+-keepclassmembers enum com.iscreamreport.xcaliper.** { *; }
+-keep interface com.iscreamreport.xcaliper.**
+-keepclassmembers interface com.iscreamreport.xcaliper.** { *; }

@@ -154,6 +154,18 @@ intent.putExtra("EXT_LOCATION",this.getClass().getName().trim());
 sendBroadcast(intent);
 ```
 
+## ProGuard 적용 제외 설정
+XCaliper SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다.
+XCaliper SDK를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용한다면, 다음과 같이 proguard-rules.pro 파일을 수정해 ProGuard 적용 대상에서 XCaliper SDK 파일을 제외합니다.
+```kotlin
+-keep class com.iscreamreport.xcaliper.**
+-keepclassmembers class com.iscreamreport.xcaliper.** { *; }
+-keep enum com.iscreamreport.xcaliper.**
+-keepclassmembers enum com.iscreamreport.xcaliper.** { *; }
+-keep interface com.iscreamreport.xcaliper.**
+-keepclassmembers interface com.iscreamreport.xcaliper.** { *; }
+```
+
 
 ## SDK 변경 이력
 ### v 1.1.0
