@@ -41,11 +41,11 @@ AWS_ACCESS_KEY 와 AWS_SECRET_KEY 는 발급 받은 내용을 사용하시면 �
 **모듈의 build.gradle 파일의 dependencies에 다음 내용을 추가합니다.**
 ```kotlin
 //앱에서 Koin 미 사용 시
-implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.0', ext: 'aar', classifier: 'koin-release') {
+implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.1', ext: 'aar', classifier: 'koin-release') {
    transitive = true
 }
 //앱에서 Koin 사용 시
-implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.0', ext: 'aar', classifier: 'koin-module-release') {
+implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.1', ext: 'aar', classifier: 'koin-module-release') {
    transitive = true
 }
 ```
@@ -72,6 +72,7 @@ override fun onCreate() {
    XCaliper.start(this)
 }
 ```
+운영 배포 시 로그를 비활성화 하려면 XCaliper.start(this, false) 를 사용하면 됩니다.<br>
 프로젝트의 strings.xml 에 발급받은 action 이름을 추가합니다.<br>
 action 이름은 Broadcast 전송시 사용되므로 원하는 곳에 저장하여 사용하시면 됩니다.<br>
 
@@ -155,7 +156,7 @@ sendBroadcast(intent);
 ```
 
 ## ProGuard 적용 제외 설정
-XCaliper SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다.
+XCaliper SDK는 ProGuard로 코드 난독화를 적용하면 안 됩니다.<br>
 XCaliper SDK를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 ProGuard를 적용한다면, 다음과 같이 proguard-rules.pro 파일을 수정해 ProGuard 적용 대상에서 XCaliper SDK 파일을 제외합니다.
 ```kotlin
 -keep class com.iscreamreport.xcaliper.**
@@ -198,3 +199,7 @@ XCaliper SDK를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 
 ### v 1.5.0
 1. 시선 추적 이벤트(EyeTrackingEvent) 추가
 2. Koin 라이브러리 사용 여부에 따른 모듈 명 변경
+
+### v 1.5.1
+1. 난독화 시 버그 수정
+2. Log enable/disable 옵션 추가
