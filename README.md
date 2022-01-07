@@ -40,12 +40,7 @@ AWS_ACCESS_KEY 와 AWS_SECRET_KEY 는 발급 받은 내용을 사용하시면 �
 
 **모듈의 build.gradle 파일의 dependencies에 다음 내용을 추가합니다.**
 ```kotlin
-//앱에서 Koin 미 사용 시
-implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.1', ext: 'aar', classifier: 'koin-release') {
-   transitive = true
-}
-//앱에서 Koin 사용 시
-implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.1', ext: 'aar', classifier: 'koin-module-release') {
+implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.5', ext: 'aar', classifier: 'release') {
    transitive = true
 }
 ```
@@ -203,3 +198,9 @@ XCaliper SDK를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 
 ### v 1.5.1
 1. 난독화 시 버그 수정
 2. Log enable/disable 옵션 추가
+
+### v 1.5.5
+1. Koin 라이브러리 버전 충돌로 삭제
+2. 시선 추적 이벤트에 캘리브레이션 여부 추가
+3. NavigationEvent OBJ_ID 값이 없으면 SDK 에서 생성하도록 로직 추가
+4. ToolUseEvent OBJ_ID, OBJ_NAME, OBJ_VERSION 값이 없으면 생성하도록 로직 추가

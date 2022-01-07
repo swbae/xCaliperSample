@@ -46,37 +46,11 @@ dependencies {
 
     implementation group: 'androidx.multidex', name: 'multidex', version: '2.0.1'
 
-    /**
-     * Koin을 사용하지 않는 앱에서 사용
-     * Debug : koin-debug
-     * Release : koin-release
-     */
-    implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.4.6', ext: 'aar', classifier: 'koin-debug') {
+
+    implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.5.5', ext: 'aar', classifier: 'debug') {
         transitive = true
         changing = true
     }
-
-    /**
-     * Koin을 사용하는 앱에서 사용
-     * 앱에서 Koin 사용 시 startKoin을 사용하면 에러가 발생하여 koin-module 추가
-     * SampleApplication.kt 에서 XCaliper.start(this) 전에 startKoin 을 실행
-     * Debug : koin-module-debug
-     * Release : koin-module-release
-     */
-//    // Koin for Kotlin
-//    implementation "org.koin:koin-core:$koin_version"
-//    // Koin extended & experimental features
-//    implementation "org.koin:koin-core-ext:$koin_version"
-//    // Koin AndroidX Scope features
-//    implementation "org.koin:koin-androidx-scope:$koin_version"
-//    // Koin AndroidX ViewModel features
-//    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-//    // Koin AndroidX Experimental features
-//    implementation "org.koin:koin-androidx-ext:$koin_version"
-//    implementation (group: 'com.iscreamreport.xcaliper', name: 'iscreamEduXCaliper', version: '1.4.6', ext: 'aar', classifier: 'koin-module-debug') {
-//        transitive = true
-//        changing = true
-//    }
 
     configurations.all {
         // Check for updates every build
