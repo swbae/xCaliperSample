@@ -3,6 +3,7 @@ package com.iscreamreport.xcaliper.sample
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.iscreamreport.xcaliper.sample.util.XCaliperEyeTrackingEvent
 import com.iscreamreport.xcaliper.utils.Base64Util
 import com.iscreamreport.xcaliper.utils.getCurrentTime
 import kotlinx.android.synthetic.main.activity_main.*
@@ -1141,6 +1142,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_SERVICE_ID","55432")
                 intent.putExtra("REF_STU_TEST_ID","12313")
 
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
+
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
@@ -1173,6 +1177,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_EXAM_TYPE",0)
                 intent.putExtra("REF_SERVICE_ID","55432")
                 intent.putExtra("REF_STU_TEST_ID","12313")
+
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1208,6 +1215,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_SERVICE_ID","55432")
                 intent.putExtra("REF_STU_TEST_ID","12313")
 
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
+
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
@@ -1241,6 +1251,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_SERVICE_ID","55432")
                 intent.putExtra("REF_STU_TEST_ID","12313")
 
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
+
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
@@ -1273,6 +1286,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_SERVICE_ID","55432")
                 intent.putExtra("REF_STU_TEST_ID","12313")
 
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
+
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
@@ -1303,6 +1319,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_EXAM_TYPE",0)
                 intent.putExtra("REF_SERVICE_ID","55432")
                 intent.putExtra("REF_STU_TEST_ID","12313")
+
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1335,6 +1354,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_EXAM_TYPE",0)
                 intent.putExtra("REF_STU_TEST_ID","12313")
 
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
+
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
                 intent.putExtra("EDAPP_VERSION",BuildConfig.VERSION_NAME)
@@ -1364,6 +1386,9 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("REF_COURSE_ID", "123123")
                 intent.putExtra("REF_EXAM_TYPE",0)
                 intent.putExtra("REF_STU_TEST_ID","12313")
+
+                intent.putExtra("GEN_ID","12332")
+                intent.putExtra("TG_ID","12332")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1421,6 +1446,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("OBJ_START_AT_TIME", getCurrentTime())
                 intent.putExtra("OBJ_ENDED_AT_TIME", getCurrentTime())
 
+                intent.putExtra("REF_ID","12332")
                 intent.putExtra("REF_TOTAL_CNT", 30)
                 intent.putExtra("REF_CORRECT_CNT", 22)
                 intent.putExtra("REF_WRONG_CNT", 7)
@@ -1444,9 +1470,12 @@ class MainActivity : AppCompatActivity() {
 
                 intent.putExtra("REF_ANSWERS", jArray.toString())
 
+                intent.putExtra("GEN_ID","12332")
                 intent.putExtra("GEN_MAXSCORE",100.0)
                 intent.putExtra("GEN_SCOREGIVEN",43.0)
                 intent.putExtra("GEN_COMMENT","auto-graded exam")
+
+                intent.putExtra("TG_ID","12332")
 
                 intent.putExtra("EDAPP_NAME",getText(R.string.app_name))
                 intent.putExtra("EDAPP_ID",packageName)
@@ -1860,6 +1889,30 @@ class MainActivity : AppCompatActivity() {
 
                 sendBroadcast(intent)
             }
+        }
+
+        //시선 추적 이벤트 (학습중일 때 - 영상 재생중 포함)
+        btn_eyetracking.setOnClickListener {
+            XCaliperEyeTrackingEvent.sendEyeTrackingEvent(this,
+                "347413",
+                10,
+                0.75073117f,
+                11,
+                12,
+                "true"
+            )
+        }
+
+        //시선 추적 이벤트 (영상 재생중일 때)
+        btn_eyetracking_media.setOnClickListener {
+            XCaliperEyeTrackingEvent.sendEyeTrackingMediaEvent(this,
+                "347413",
+                10,
+                0.75073117f,
+                11,
+                12,
+                "false"
+            )
         }
 
     }

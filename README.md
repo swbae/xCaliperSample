@@ -204,3 +204,7 @@ XCaliper SDK를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 
 2. 시선 추적 이벤트에 캘리브레이션 여부 추가
 3. NavigationEvent OBJ_ID 값이 없으면 SDK 에서 생성하도록 로직 추가
 4. ToolUseEvent OBJ_ID, OBJ_NAME, OBJ_VERSION 값이 없으면 생성하도록 로직 추가
+
+### v 1.5.8
+1. 평가 GEN_ID, TG_ID 추가
+2. 시선 추적 이벤트 학습 종료 시 1회만 수집되도록 수정
