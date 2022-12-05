@@ -208,3 +208,13 @@ XCaliper SDK를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 
 ### v 1.5.8
 1. 평가 GEN_ID, TG_ID 추가
 2. 시선 추적 이벤트 학습 종료 시 1회만 수집되도록 수정
+
+### v 1.6.1
+1. 로그인 아이디 수집하지 않도록 수정
+
+### v 1.7.0
+1. 객관식 보기 선택/해제 이벤트 추가 (AssessmentItemChoiceEvent)
+2. ToolUseEvent에 연습장 실행/종료 시 시험지ID, 문항ID 추가
+3. 문항 채점 확인 이벤트 추가 (AssessmentItemEvent - Viewed)
+4. MessageEvent에 OBJ_RECEIVER_ID 추가
+5. 평가 풀이에서 해설 영상 재생 시 문항 ID 수집 (MediaEvent)
