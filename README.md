@@ -218,3 +218,6 @@ XCaliper SDK를 사용하는 애플리케이션을 .apk 파일로 빌드할 때 
 3. 문항 채점 확인 이벤트 추가 (AssessmentItemEvent - Viewed)
 4. MessageEvent에 OBJ_RECEIVER_ID 추가
 5. 평가 풀이에서 해설 영상 재생 시 문항 ID 수집 (MediaEvent)
+
+### v 1.7.1
+1. 홈런 서비스 ID 추가
